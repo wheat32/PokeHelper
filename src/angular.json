@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "src": {
+    "pokehelper": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -66,10 +66,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "src:build:production"
+              "buildTarget": "pokehelper:build:production"
             },
             "development": {
-              "buildTarget": "src:build:development"
+              "buildTarget": "pokehelper:build:development"
             }
           },
           "defaultConfiguration": "development"
