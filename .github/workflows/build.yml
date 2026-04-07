@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
           cache-dependency-path: src/package-lock.json
 
@@ -27,7 +27,10 @@ jobs:
 
       - name: Build
         working-directory: src
-        run: npm run build -- --base-href /PokeHelper/
+        run: npm run build
+
+      - name: Copy index.html to 404.html
+        run: cp src/dist/pokehelper/browser/index.html src/dist/pokehelper/browser/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
