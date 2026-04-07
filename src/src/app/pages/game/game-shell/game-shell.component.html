@@ -16,7 +16,9 @@
           </div>
         }
         <div>
-          <h1 class="game-title mb-0">{{ gamePair.displayName }}</h1>
+          <h1 class="game-title mb-0">
+            <a class="game-title-link" [routerLink]="['/', gamePair.pairId]">{{ gamePair.displayName }}</a>
+          </h1>
           <p class="game-gen mb-0">Generation {{ gamePair.generation }} · Pokémon Guide</p>
         </div>
       </div>
@@ -48,6 +50,12 @@
             <a class="nav-link" [routerLink]="['/', gamePair.pairId, 'unobtainables']"
                routerLinkActive="active">
               <i class="bi bi-slash-circle me-2"></i>Unobtainables
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/', gamePair.pairId, 'obedience']"
+               routerLinkActive="active">
+              <i class="bi bi-shield-check me-2"></i>Obedience
             </a>
           </li>
         </ul>

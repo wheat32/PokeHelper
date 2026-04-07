@@ -88,6 +88,10 @@ export interface GamePairData {
   iconColors?: [string, string];
   /** CSS theme class, e.g. 'game-pair-gen3'. */
   themeClass: string;
+  /** A brief description shown on the home page card. */
+  description?: string;
+  /** Path to a regional map image served from the assets root (e.g. 'images/maps/gen3/worldmap.png'). */
+  mapImage?: string;
   /** The two versions in the pair. */
   versions: [GameData, GameData];
   /** Trade evolutions shared between both versions (de-duplicated). */

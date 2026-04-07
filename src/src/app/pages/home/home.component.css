@@ -1,3 +1,5 @@
+/* ── Hero ───────────────────────────────────────────────────── */
+
 .home-hero {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #fff;
@@ -11,7 +13,7 @@
 
 @keyframes spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
 
 .hero-title {
@@ -31,16 +33,18 @@
   color: var(--color-text);
 }
 
-/* Game cards */
+/* ── Game card ──────────────────────────────────────────────── */
+
 .game-card {
   border-radius: var(--border-radius-lg);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
   border: none;
-  border-top: 5px solid var(--game-color, var(--color-primary));
+  overflow: hidden;
   position: relative;
+  transition: box-shadow 0.2s ease;
+  border-top: 5px solid var(--game-color, var(--color-primary));
+  background-color: var(--color-surface);
 }
 
-/* Gradient top border via pseudo-element when pair has iconColors */
 .game-card.game-card-gradient {
   border-top: none;
 }
@@ -52,18 +56,37 @@
   left: 0;
   right: 0;
   height: 5px;
-  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
   background: var(--pair-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
+  z-index: 2;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
 }
 
 .game-card:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-lg) !important;
 }
 
+/* ── Card internals ─────────────────────────────────────────── */
+
+.card-content {
+  min-width: 0;
+}
+
+.game-card-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.game-card-desc {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.65;
+  max-width: 540px;
+}
+
 .game-icon-wrapper {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: var(--border-radius);
   background-color: var(--game-color-bg, var(--color-bg));
   display: flex;
@@ -73,24 +96,51 @@
 }
 
 .game-icon {
-  font-size: 1.75rem;
+  font-size: 2rem;
   color: var(--game-color, var(--color-primary));
 }
 
 .game-btn {
-  background-color: var(--game-color, var(--color-primary));
+  background-color: var(--color-primary);
   color: #fff;
+  font-weight: 600;
   border: none;
+  padding: 0.55rem 1.4rem;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--border-radius);
 }
 
 .game-btn:hover {
-  background-color: var(--game-color-dark, var(--color-primary-dark));
+  background-color: var(--color-primary-dark);
   color: #fff;
 }
+
+/* ── Map panel ──────────────────────────────────────────────── */
+
+.card-map {
+  width: 300px;
+  flex-shrink: 0;
+  position: relative;
+  background-size: cover;
+  background-position: center top;
+  image-rendering: pixelated;
+  min-height: 200px;
+}
+
+/* Fade from card surface into the map on the left edge */
+.card-map-fade {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 80px;
+  background: linear-gradient(to right, var(--color-surface), transparent);
+}
+
+/* ── Coming soon ────────────────────────────────────────────── */
 
 .coming-soon {
   background-color: transparent;
   border-radius: var(--border-radius-lg);
   border-style: dashed !important;
 }
-

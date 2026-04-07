@@ -1,0 +1,147 @@
+<div class="obedience">
+  <div class="page-header mb-4">
+    <h2 class="page-title">
+      <i class="bi bi-shield-check me-2"></i>Pokémon Obedience
+    </h2>
+    @if (gamePair) {
+      <p class="text-body-secondary mb-0">
+        Traded Pokémon may disobey in <strong>{{ gamePair.displayName }}</strong> if their level exceeds your current badge threshold.
+        Only Kanto Gym Badges earned in your own game grant these thresholds.
+      </p>
+    }
+  </div>
+
+  <!-- Info notice -->
+  <div class="alert info-notice d-flex gap-3 align-items-start mb-4">
+    <i class="bi bi-info-circle-fill fs-5 flex-shrink-0 mt-1"></i>
+    <div>
+      <strong>Why does this matter?</strong>
+      Any Pokémon that was <em>traded</em> to you (including from another cartridge or another file
+      via the Union Room) will only obey if its level is at or below the cap granted by your badges.
+      Pokémon you caught yourself always obey, regardless of level.
+    </div>
+  </div>
+
+  <!-- Obedience table -->
+  <div class="table-card card shadow-sm mb-4"
+       [ngStyle]="accentGradient ? {'--obedience-gradient': accentGradient} : {}"
+       [class.table-card-gradient]="!!accentGradient">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table obedience-table mb-0">
+          <thead>
+            <tr>
+              <th scope="col" class="col-badges"># Badges</th>
+              <th scope="col" class="col-badge-name">Badge Earned</th>
+              <th scope="col" class="col-gym-leader">Gym Leader</th>
+              <th scope="col" class="col-city">City</th>
+              <th scope="col" class="col-cap">Max Obedient Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of obedienceRows; track row.badges) {
+              <tr [ngClass]="{'milestone-row': row.isMilestone, 'unchanged-row': !row.isMilestone}">
+                <td class="col-badges">
+                  <span class="badge-count-pill" [ngClass]="{'milestone-pill': row.isMilestone}">
+                    {{ row.badges }}
+                  </span>
+                </td>
+                <td class="col-badge-name">
+                  @if (row.isMilestone && row.badges > 0) {
+                    <span class="badge-name milestone-badge-name">
+                      <i class="bi bi-award-fill me-1"></i>{{ row.badgeName }}
+                    </span>
+                  } @else if (row.badges === 0) {
+                    <span class="text-body-secondary fst-italic">{{ row.badgeName }}</span>
+                  } @else {
+                    <span class="text-body-secondary">{{ row.badgeName }}</span>
+                  }
+                </td>
+                <td class="col-gym-leader">{{ row.gymLeader }}</td>
+                <td class="col-city text-body-secondary">{{ row.city }}</td>
+                <td class="col-cap">
+                  <span class="level-cap-badge"
+                        [ngClass]="{'level-cap-all': row.levelCap === null, 'level-cap-milestone': row.isMilestone}">
+                    @if (row.levelCap === null) {
+                      <i class="bi bi-check-circle-fill me-1"></i>All levels
+                    } @else {
+                      Up to Lv. {{ row.levelCap }}
+                    }
+                  </span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone legend -->
+  <div class="d-flex gap-3 mb-4 flex-wrap legend-row">
+    <div class="d-flex align-items-center gap-2">
+      <span class="legend-dot milestone-dot"></span>
+      <span class="small text-body-secondary">Badge raises the obedience cap</span>
+    </div>
+    <div class="d-flex align-items-center gap-2">
+      <span class="legend-dot unchanged-dot"></span>
+      <span class="small text-body-secondary">No change to obedience cap</span>
+    </div>
+  </div>
+
+  <!-- Mew / Deoxys special rule -->
+  <div class="alert special-notice d-flex gap-3 align-items-start mb-4">
+    <i class="bi bi-exclamation-triangle-fill fs-5 flex-shrink-0 mt-1"></i>
+    <div>
+      <strong>Mew &amp; Deoxys — Fateful Encounter rule.</strong>
+      In FireRed and LeafGreen, if a Mew or Deoxys was <em>not</em> met in a fateful encounter
+      (i.e. it was not obtained from an official event), the game treats the obedience cap as
+      <strong>0</strong> for that Pokémon — meaning it will <em>always</em> disobey regardless of
+      how many badges you have. Only legitimately event-distributed copies of these Pokémon
+      will obey normally.
+    </div>
+  </div>
+
+  <!-- Mechanics details -->
+  <div class="mechanics-section card shadow-sm">
+    <div class="card-header mechanics-header">
+      <i class="bi bi-cpu me-2"></i><strong>How the obedience check works (Gen III)</strong>
+    </div>
+    <div class="card-body mechanics-body">
+      <p>
+        Each time a disobedience-eligible Pokémon attempts to use a move, the game runs the following calculation
+        (where <em>R1</em> is a random integer 0–255 and <em>ObedienceCap</em> is the max level granted by your badges):
+      </p>
+
+      <div class="formula-block mb-3">
+        <code>ObedienceCheck = (PokémonLevel + ObedienceCap) × R1 / 256</code>
+      </div>
+
+      <p>
+        If <strong>ObedienceCheck ≥ ObedienceCap</strong>, the Pokémon disobeys. A second roll then determines what it does instead:
+      </p>
+
+      <div class="formula-block mb-3">
+        <code>DisobedienceAction = (PokémonLevel + ObedienceCap) × R2 / 256</code>
+      </div>
+
+      <ul class="mechanics-list">
+        <li>If <strong>DisobedienceAction &lt; ObedienceCap</strong> — the Pokémon uses a random move from its own moveset instead.</li>
+        <li>Otherwise, a third random integer R3 (0–255) is rolled:
+          <ul>
+            <li>If <strong>R3 &lt; (PokémonLevel − ObedienceCap)</strong> — the Pokémon falls asleep (unless already statused, an uproar is active, or it has Vital Spirit / Insomnia).</li>
+            <li>If <strong>R3 &lt; 2 × (PokémonLevel − ObedienceCap)</strong> — the Pokémon hurts itself in confusion.</li>
+            <li>Otherwise — the Pokémon does nothing.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <p class="mb-0 text-body-secondary small">
+        <i class="bi bi-info-circle me-1"></i>
+        In Gen III the obedience check is skipped when using Pursuit on a switching Pokémon, during the charging
+        turn of a two-turn move, or while locked into Bide or a consecutively executed move.
+      </p>
+    </div>
+  </div>
+</div>
+

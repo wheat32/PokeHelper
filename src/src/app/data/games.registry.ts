@@ -24,6 +24,8 @@ export const fireredLeafgreenPair: GamePairData = {
   icons: ['fire', 'leaf'],
   iconColors: ['#cc0000', '#2e7d32'],
   themeClass: 'game-pair-gen3',
+  description: 'Version exclusives, trade evolutions, starters, obedience thresholds, and more — for your Kanto journey on Nintendo Switch.',
+  mapImage: 'images/maps/gen3/worldmap.png',
   versions: [fireredData, leafgreenData],
   sharedTradeEvolutions: buildSharedTrades(fireredData, leafgreenData),
   unobtainables: [

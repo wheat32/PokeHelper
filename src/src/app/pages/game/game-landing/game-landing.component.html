@@ -1,0 +1,51 @@
+<div class="game-landing">
+
+  <!-- Welcome banner with map panel -->
+  <div class="welcome-banner card shadow-sm mb-4 overflow-hidden">
+    <div class="d-flex align-items-stretch">
+      <!-- Text side -->
+      <div class="welcome-content p-4 flex-grow-1">
+        <h2 class="welcome-title mb-1">
+          @if (gamePair) { {{ gamePair.displayName }} Guide }
+          @else { Game Guide }
+        </h2>
+        <p class="text-body-secondary mb-0">
+          Generation {{ gamePair?.generation }} · Nintendo Switch
+          &mdash; select a topic below to get started.
+        </p>
+      </div>
+
+      <!-- Map panel — md+ only -->
+      @if (gamePair?.mapImage) {
+        <div class="welcome-map d-none d-md-block"
+             [style.background-image]="'url(' + gamePair!.mapImage + ')'">
+          <div class="welcome-map-fade"></div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- Section cards -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+    @for (section of sections; track section.route) {
+      <div class="col">
+        <a [routerLink]="section.route"
+           class="section-card card shadow-sm h-100 text-decoration-none">
+          <div class="card-body p-4 d-flex flex-column">
+            <div class="section-icon mb-3">
+              <i class="bi bi-{{ section.icon }}"></i>
+            </div>
+            <h5 class="section-label mb-2">{{ section.label }}</h5>
+            <p class="section-desc text-body-secondary flex-grow-1 mb-3">
+              {{ section.description }}
+            </p>
+            <div class="section-cta">
+              Explore <i class="bi bi-arrow-right-short fs-5"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    }
+  </div>
+</div>
+

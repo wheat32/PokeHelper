@@ -1,0 +1,189 @@
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--game-color, var(--color-primary));
+}
+
+/* ── Notices ─────────────────────────────────────────────────────────────── */
+
+.info-notice {
+  background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+}
+
+.special-notice {
+  background-color: color-mix(in srgb, #f5a623 12%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, #f5a623 30%, transparent);
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+}
+
+/* ── Table card ───────────────────────────────────────────────────────────── */
+
+.table-card {
+  border-radius: var(--border-radius);
+  border-top: 4px solid var(--game-color, var(--color-primary));
+  background-color: var(--color-surface);
+  overflow: hidden;
+  position: relative;
+}
+
+.table-card.table-card-gradient {
+  border-top: none;
+}
+
+.table-card.table-card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background: var(--obedience-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
+  z-index: 1;
+}
+
+/* ── Obedience table ──────────────────────────────────────────────────────── */
+
+.obedience-table {
+  font-size: var(--font-size-sm);
+}
+
+.obedience-table thead th {
+  background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  white-space: nowrap;
+}
+
+.obedience-table td {
+  padding: 0.65rem 1rem;
+  vertical-align: middle;
+  border-color: var(--color-border);
+}
+
+/* Milestone rows get a subtle left accent */
+.milestone-row {
+  background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface));
+}
+
+.milestone-row td:first-child {
+  border-left: 3px solid var(--game-color, var(--color-primary));
+}
+
+.unchanged-row {
+  opacity: 0.75;
+}
+
+/* Badge count pill */
+.badge-count-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.badge-count-pill.milestone-pill {
+  background-color: var(--game-color, var(--color-primary));
+  color: #fff;
+}
+
+/* Badge name in milestone rows */
+.milestone-badge-name {
+  font-weight: 600;
+  color: var(--game-color, var(--color-primary));
+}
+
+/* Level cap badge */
+.level-cap-badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--border-radius-sm);
+  background-color: color-mix(in srgb, var(--color-text-muted) 15%, var(--color-surface));
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.level-cap-badge.level-cap-milestone {
+  background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-surface));
+  color: var(--game-color, var(--color-primary));
+}
+
+.level-cap-badge.level-cap-all {
+  background-color: color-mix(in srgb, #2e7d32 15%, var(--color-surface));
+  color: #2e7d32;
+}
+
+/* ── Legend ───────────────────────────────────────────────────────────────── */
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.milestone-dot {
+  background-color: var(--game-color, var(--color-primary));
+}
+
+.unchanged-dot {
+  background-color: var(--color-border);
+}
+
+/* ── Mechanics section ────────────────────────────────────────────────────── */
+
+.mechanics-section {
+  border-radius: var(--border-radius);
+  background-color: var(--color-surface);
+}
+
+.mechanics-header {
+  background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+}
+
+.mechanics-body {
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+}
+
+.formula-block {
+  background-color: var(--color-bg);
+  border-left: 3px solid var(--game-color, var(--color-primary));
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+}
+
+.mechanics-list {
+  padding-left: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.mechanics-list li {
+  margin-bottom: 0.35rem;
+}
+
+.mechanics-list ul {
+  padding-left: 1.25rem;
+  margin-top: 0.35rem;
+}
+

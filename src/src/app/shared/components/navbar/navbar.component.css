@@ -70,6 +70,59 @@
   color: var(--navbar-text);
 }
 
+/* ── Game nav dropdown ──────────────────────────────────────── */
+
+/* Small inline caret next to the game name */
+.nav-caret {
+  font-size: 0.65rem;
+  vertical-align: middle;
+  opacity: 0.7;
+  transition: transform 0.15s ease;
+}
+
+/* Desktop: open dropdown on hover */
+@media (min-width: 992px) {
+  .game-nav-item:hover > .game-dropdown-menu {
+    display: block;
+    margin-top: 0; /* no gap so hover is seamless */
+  }
+
+  .game-nav-item:hover .nav-caret {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+}
+
+/* Mobile: show sub-items statically, styled to match the navbar palette */
+@media (max-width: 991px) {
+  .game-dropdown-menu {
+    position: static !important;
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0.15rem 0 0.5rem 0.75rem;
+    margin: 0;
+  }
+
+  .game-dropdown-menu .dropdown-item {
+    color: rgba(255, 255, 255, 0.82) !important;
+    font-size: 0.875rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .game-dropdown-menu .dropdown-item:hover,
+  .game-dropdown-menu .dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: #fff !important;
+  }
+
+  .nav-caret {
+    display: none;
+  }
+}
+
 /* Show a small chevron as the caret, tighter than Bootstrap's default */
 .theme-toggle::after {
   font-family: "bootstrap-icons";
