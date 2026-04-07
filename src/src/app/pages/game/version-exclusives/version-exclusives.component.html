@@ -1,0 +1,54 @@
+<div class="version-exclusives">
+  <div class="page-header mb-4">
+    <h2 class="page-title">
+      <i class="bi bi-star-fill me-2"></i>Version Exclusives
+    </h2>
+    @if (gamePair) {
+      <p class="text-body-secondary mb-0">
+        Pokémon exclusive to each version. Trade between copies to complete your Pokédex!
+      </p>
+    }
+  </div>
+
+  @if (versionA && versionB) {
+    <div class="row g-4">
+      <!-- Version A column -->
+      <div class="col-12 col-lg-6">
+        <div class="version-column version-a">
+          <div class="version-header" [class]="versionA.themeClass">
+            <i class="bi bi-{{ versionA.icon }} me-2"></i>{{ versionA.displayName }} Only
+          </div>
+          <div class="row row-cols-2 row-cols-sm-3 row-cols-xl-4 g-2 mt-1">
+            @for (pokemon of versionA.exclusives; track pokemon.id) {
+              <div class="col">
+                <app-pokemon-card [pokemon]="pokemon" [accentColor]="versionA.color" />
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Version B column -->
+      <div class="col-12 col-lg-6">
+        <div class="version-column version-b">
+          <div class="version-header" [class]="versionB.themeClass">
+            <i class="bi bi-{{ versionB.icon }} me-2"></i>{{ versionB.displayName }} Only
+          </div>
+          <div class="row row-cols-2 row-cols-sm-3 row-cols-xl-4 g-2 mt-1">
+            @for (pokemon of versionB.exclusives; track pokemon.id) {
+              <div class="col">
+                <app-pokemon-card [pokemon]="pokemon" [accentColor]="versionB.color" />
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="empty-state text-center py-5 text-muted">
+      <i class="bi bi-search fs-1 d-block mb-3"></i>
+      <p>No exclusive Pokémon data found.</p>
+    </div>
+  }
+</div>
+

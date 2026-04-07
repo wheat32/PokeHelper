@@ -1,0 +1,20 @@
+<div class="split-icon-root"
+     [style.width.px]="size"
+     [style.height.px]="size"
+     [style.border-radius.px]="borderRadius">
+
+  <!-- Top-left half -->
+  <div class="split-half split-top"
+       [style.background-color]="colors[0]">
+    <i class="bi bi-{{ icons[0] }} split-bi-icon" [style.font-size]="iconFontSize"></i>
+  </div>
+
+  <!-- Bottom-right half -->
+  <div class="split-half split-bottom"
+       [style.background-color]="colors[1]">
+    <i class="bi bi-{{ icons[1] }} split-bi-icon" [style.font-size]="iconFontSize"></i>
+  </div>
+
+  <!-- Diagonal divider -->
+  <div class="split-divider"></div>
+</div>

@@ -1,0 +1,51 @@
+@if (gamePair) {
+  <div class="game-shell {{ gamePair.themeClass }}">
+    <!-- Game Header -->
+    <div class="game-header">
+      <div class="container-xl py-4 d-flex align-items-center gap-3">
+        @if (gamePair.icons && gamePair.iconColors) {
+          <app-split-icon
+            [icons]="gamePair.icons"
+            [colors]="gamePair.iconColors"
+            [size]="60"
+            [borderRadius]="8"
+          />
+        } @else {
+          <div class="header-icon-wrapper">
+            <i class="bi bi-{{ gamePair.icon }} header-icon"></i>
+          </div>
+        }
+        <div>
+          <h1 class="game-title mb-0">{{ gamePair.displayName }}</h1>
+          <p class="game-gen mb-0">Generation {{ gamePair.generation }} · Pokémon Guide</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sub-navigation tabs -->
+    <div class="game-subnav">
+      <div class="container-xl">
+        <ul class="nav nav-tabs border-0">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/', gamePair.pairId, 'version-exclusives']"
+               routerLinkActive="active">
+              <i class="bi bi-star-fill me-2"></i>Version Exclusives
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/', gamePair.pairId, 'trade-evolutions']"
+               routerLinkActive="active">
+              <i class="bi bi-arrow-left-right me-2"></i>Trade Evolutions
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="container-xl py-4">
+      <router-outlet />
+    </div>
+  </div>
+}
+

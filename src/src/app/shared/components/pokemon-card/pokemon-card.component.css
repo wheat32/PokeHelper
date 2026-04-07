@@ -1,0 +1,63 @@
+.pokemon-card {
+  border-radius: var(--border-radius);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.sprite-wrapper {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 50%;
+  width: 112px;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-bs-theme="dark"] .sprite-wrapper {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.evolution-badge {
+  background-color: var(--game-color, var(--color-primary));
+  color: #fff;
+  font-size: 0.75rem;
+  white-space: normal;
+  text-align: center;
+}
+
+.locations-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.location-item {
+  font-size: var(--font-size-sm);
+}
+
+.location-link {
+  color: var(--bs-secondary-color);
+  text-decoration: none;
+}
+
+.location-link:hover {
+  color: var(--game-color, var(--color-primary));
+  text-decoration: underline;
+}
+
+.ext-link-icon {
+  font-size: 0.65em;
+  vertical-align: super;
+  opacity: 0.6;
+}
+
+.notes-text {
+  color: var(--bs-secondary-color);
+  font-style: italic;
+}

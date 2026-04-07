@@ -1,0 +1,62 @@
+:host {
+  display: inline-block;
+}
+
+.split-icon-root {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  /* font-size drives the icon size; set relative to the element size */
+  font-size: 1rem;
+}
+
+.split-half {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* Top-left triangle via clip-path (fire lives here) */
+.split-top {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+/* Bottom-right triangle via clip-path (leaf lives here) */
+.split-bottom {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.split-bi-icon {
+  position: absolute;
+}
+
+.split-top .split-bi-icon {
+  top: 26%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+}
+
+.split-bottom .split-bi-icon {
+  bottom: 26%;
+  right: 26%;
+  transform: translate(50%, 50%) rotate(45deg);
+}
+
+/* White diagonal divider line — runs ↗ from bottom-left to top-right, between the two icons */
+.split-divider {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top right,
+    transparent calc(50% - 1px),
+    rgba(255, 255, 255, 0.65) calc(50% - 1px),
+    rgba(255, 255, 255, 0.65) calc(50% + 1px),
+    transparent calc(50% + 1px)
+  );
+  transform: rotate(90deg);
+}
+

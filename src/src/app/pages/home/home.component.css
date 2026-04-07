@@ -1,0 +1,79 @@
+.home-hero {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: #fff;
+}
+
+.hero-logo {
+  width: 80px;
+  height: 80px;
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* Game cards */
+.game-card {
+  border-radius: var(--border-radius-lg);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: none;
+  border-top: 5px solid var(--game-color, var(--color-primary));
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.game-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--border-radius);
+  background-color: var(--game-color-bg, var(--color-bg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.game-icon {
+  font-size: 1.75rem;
+  color: var(--game-color, var(--color-primary));
+}
+
+.game-btn {
+  background-color: var(--game-color, var(--color-primary));
+  color: #fff;
+  border: none;
+}
+
+.game-btn:hover {
+  background-color: var(--game-color-dark, var(--color-primary-dark));
+  color: #fff;
+}
+
+.coming-soon {
+  background-color: transparent;
+  border-radius: var(--border-radius-lg);
+  border-style: dashed !important;
+}
+

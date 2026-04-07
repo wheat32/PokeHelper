@@ -1,0 +1,65 @@
+.game-header {
+  background: linear-gradient(135deg, var(--game-color), var(--game-color-dark));
+  color: #fff;
+}
+
+/* FireRed & LeafGreen pair: gradient from FR red to LG green */
+.game-pair-gen3 .game-header {
+  background: linear-gradient(135deg, var(--color-firered) 0%, var(--color-firered-dark) 35%, var(--color-leafgreen-dark) 65%, var(--color-leafgreen) 100%);
+}
+
+.header-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius);
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header-icon {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.game-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.game-gen {
+  opacity: 0.8;
+  font-size: var(--font-size-sm);
+}
+
+/* Sub-nav tabs */
+.game-subnav {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-tabs .nav-link {
+  color: var(--color-text-muted);
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.nav-tabs .nav-link:hover {
+  color: var(--game-color);
+  border-bottom-color: var(--game-color-light);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--game-color);
+  border-bottom-color: var(--game-color);
+  background-color: transparent;
+  font-weight: 700;
+}
+

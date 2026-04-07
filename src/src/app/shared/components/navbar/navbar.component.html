@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg" id="main-navbar">
+  <div class="container-xl">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <img src="pokeball_icon.svg" alt="Pokéball" class="navbar-logo">
+      <span class="navbar-title">PokeHelper</span>
+    </a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <i class="bi bi-house-fill me-1"></i>Home
+          </a>
+        </li>
+        @for (pair of gamePairs; track pair.pairId) {
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-{{ pair.icon }} me-1"></i>{{ pair.displayName }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" [routerLink]="['/', pair.pairId, 'version-exclusives']">
+                  <i class="bi bi-star-fill me-2"></i>Version Exclusives
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['/', pair.pairId, 'trade-evolutions']">
+                  <i class="bi bi-arrow-left-right me-2"></i>Trade Evolutions
+                </a>
+              </li>
+            </ul>
+          </li>
+        }
+        <!-- Theme dropdown -->
+        <li class="nav-item dropdown ms-lg-2">
+          <button class="btn theme-toggle dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi"
+               [class.bi-sun-fill]="themeService.preference() === 'light'"
+               [class.bi-moon-fill]="themeService.preference() === 'dark'"
+               [class.bi-circle-half]="themeService.preference() === 'auto'"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <button class="dropdown-item d-flex align-items-center gap-2"
+                      [class.active]="themeService.preference() === 'light'"
+                      (click)="setTheme('light')">
+                <i class="bi bi-sun-fill"></i> Light
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center gap-2"
+                      [class.active]="themeService.preference() === 'dark'"
+                      (click)="setTheme('dark')">
+                <i class="bi bi-moon-fill"></i> Dark
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center gap-2"
+                      [class.active]="themeService.preference() === 'auto'"
+                      (click)="setTheme('auto')">
+                <i class="bi bi-circle-half"></i> Auto
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
