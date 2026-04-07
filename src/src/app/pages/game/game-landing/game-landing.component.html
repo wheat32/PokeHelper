@@ -2,23 +2,24 @@
 
   <!-- Welcome banner with map panel -->
   <div class="welcome-banner card shadow-sm mb-4 overflow-hidden">
+    @let gp = gamePair();
     <div class="d-flex align-items-stretch">
       <!-- Text side -->
       <div class="welcome-content p-4 flex-grow-1">
         <h2 class="welcome-title mb-1">
-          @if (gamePair) { {{ gamePair.displayName }} Guide }
+          @if (gp) { {{ gp.displayName }} Guide }
           @else { Game Guide }
         </h2>
         <p class="text-body-secondary mb-0">
-          Generation {{ gamePair?.generation }} · Nintendo Switch
+          Generation {{ gp?.generation }} · Nintendo Switch
           &mdash; select a topic below to get started.
         </p>
       </div>
 
       <!-- Map panel — md+ only -->
-      @if (gamePair?.mapImage) {
+      @if (gp?.mapImage) {
         <div class="welcome-map d-none d-md-block"
-             [style.background-image]="'url(' + gamePair!.mapImage + ')'">
+             [style.background-image]="'url(' + gp!.mapImage + ')'">
           <div class="welcome-map-fade"></div>
         </div>
       }

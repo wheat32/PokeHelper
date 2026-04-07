@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ALL_GAME_PAIRS } from '../../data/games.registry';
 import { GamePairData } from '../../shared/models/pokemon.model';
@@ -9,6 +9,7 @@ import { SplitIconComponent } from '../../shared/components/split-icon/split-ico
   imports: [RouterLink, SplitIconComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
   readonly gamePairs: GamePairData[] = ALL_GAME_PAIRS;

@@ -1,15 +1,12 @@
 <div class="obedience">
-  <div class="page-header mb-4">
-    <h2 class="page-title">
-      <i class="bi bi-shield-check me-2"></i>Pokémon Obedience
-    </h2>
-    @if (gamePair) {
+  <app-page-header icon="shield-check" title="Pokémon Obedience">
+    @if (gamePair(); as gp) {
       <p class="text-body-secondary mb-0">
-        Traded Pokémon may disobey in <strong>{{ gamePair.displayName }}</strong> if their level exceeds your current badge threshold.
+        Traded Pokémon may disobey in <strong>{{ gp.displayName }}</strong> if their level exceeds your current badge threshold.
         Only Kanto Gym Badges earned in your own game grant these thresholds.
       </p>
     }
-  </div>
+  </app-page-header>
 
   <!-- Info notice -->
   <div class="alert info-notice d-flex gap-3 align-items-start mb-4">
@@ -24,8 +21,8 @@
 
   <!-- Obedience table -->
   <div class="table-card card shadow-sm mb-4"
-       [ngStyle]="accentGradient ? {'--obedience-gradient': accentGradient} : {}"
-       [class.table-card-gradient]="!!accentGradient">
+       [ngStyle]="accentGradient() ? {'--accent-gradient': accentGradient()} : {}"
+       [class.card-gradient-border]="!!accentGradient()">
     <div class="card-body p-0">
       <div class="table-responsive">
         <table class="table obedience-table mb-0">

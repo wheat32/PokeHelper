@@ -5,18 +5,6 @@
   position: relative;
 }
 
-/* Gradient top border - rendered as a pseudo-element so border-radius is preserved */
-.trade-card-gradient-border::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  background: var(--trade-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
-}
-
 .trade-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md) !important;
@@ -80,10 +68,3 @@
   text-align: center;
   font-weight: 400;
 }
-
-.ext-link-icon {
-  font-size: 0.65em;
-  vertical-align: super;
-  opacity: 0.6;
-}
-

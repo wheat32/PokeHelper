@@ -1,9 +1,3 @@
-.page-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--game-color, var(--color-primary));
-}
-
 .trade-notice {
   background-color: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
   border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
@@ -34,21 +28,6 @@
   position: relative;
 }
 
-.starter-card.starter-card-gradient {
-  border-top: none;
-}
-
-.starter-card.starter-card-gradient::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  background: var(--starter-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
-}
-
 .starter-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md) !important;
@@ -71,15 +50,3 @@
   white-space: normal;
   text-align: center;
 }
-
-.notes-text {
-  font-style: italic;
-  line-height: 1.5;
-}
-
-.ext-link-icon {
-  font-size: 0.65em;
-  vertical-align: super;
-  opacity: 0.6;
-}
-

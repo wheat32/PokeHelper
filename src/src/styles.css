@@ -164,3 +164,52 @@ a.bulbapedia-link:hover {
 {
   transform: rotate(45deg);
 }
+
+/* ── Page-level shared utilities ─────────────────────────────────────────── */
+
+/* Page section title — used by all game-page child components */
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--game-color, var(--color-primary));
+}
+
+/* External-link superscript icon (Bulbapedia, etc.) */
+.ext-link-icon {
+  font-size: 0.65em;
+  vertical-align: super;
+  opacity: 0.6;
+}
+
+/* Italic notes / extra info text */
+.notes-text {
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Gradient top-border utility ─────────────────────────────────────────── */
+/*
+ * Apply alongside a CSS custom property `--accent-gradient` on the element
+ * (via [ngStyle]) and `position: relative` on the card container.
+ * Replaces the solid `border-top` with a gradient pseudo-element.
+ *
+ * Usage in template:
+ *   [class.card-gradient-border]="!!accentGradient"
+ *   [ngStyle]="accentGradient ? {'--accent-gradient': accentGradient} : {}"
+ */
+.card-gradient-border {
+  border-top: none !important;
+}
+
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background: var(--accent-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
+  z-index: 1;
+}
+

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { NgStyle } from '@angular/common';
 import { TradeEvolution } from '../../models/pokemon.model';
 import { PokemonService } from '../../services/pokemon.service';
@@ -8,49 +8,22 @@ import { PokemonService } from '../../services/pokemon.service';
   imports: [NgStyle],
   templateUrl: './trade-evolution-card.component.html',
   styleUrl: './trade-evolution-card.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TradeEvolutionCardComponent {
-  @Input({ required: true }) evolution!: TradeEvolution;
+  readonly evolution = input.required<TradeEvolution>();
   /**
-   * Optional CSS gradient for the top border, e.g.
-   * 'linear-gradient(to right, #cc0000, #2e7d32)'.
+   * Optional CSS gradient for the top border.
    * When set, replaces the solid game-accent-border color.
    */
-  @Input() accentGradient?: string;
+  readonly accentGradient = input<string>();
 
-  constructor(public pokemonService: PokemonService) {}
+  protected readonly pokemonService = inject(PokemonService);
 
-  get fromSpriteUrl(): string {
-    return this.pokemonService.getSpriteUrl(this.evolution.fromId);
-  }
-
-  get toSpriteUrl(): string {
-    return this.pokemonService.getSpriteUrl(this.evolution.toId);
-  }
-
-  get fromBulbapediaUrl(): string {
-    return this.pokemonService.getBulbapediaPokemonUrl(this.evolution.fromName);
-  }
-
-  get toBulbapediaUrl(): string {
-    return this.pokemonService.getBulbapediaPokemonUrl(this.evolution.toName);
-  }
-
-  get fromPokedexNumber(): string {
-    return this.pokemonService.formatPokedexNumber(this.evolution.fromId);
-  }
-
-  get toPokedexNumber(): string {
-    return this.pokemonService.formatPokedexNumber(this.evolution.toId);
-  }
-
-  onSpriteError(event: Event, id: number | string): void {
-    const img = event.target as HTMLImageElement;
-    if (!img.dataset['fallback']) {
-      img.dataset['fallback'] = '1';
-      img.src = this.pokemonService.getFallbackSpriteUrl(id);
-    } else {
-      img.src = 'pokeball_icon.png';
-    }
-  }
+  readonly fromSpriteUrl = computed(() => this.pokemonService.getSpriteUrl(this.evolution().fromId));
+  readonly toSpriteUrl = computed(() => this.pokemonService.getSpriteUrl(this.evolution().toId));
+  readonly fromBulbapediaUrl = computed(() => this.pokemonService.getBulbapediaPokemonUrl(this.evolution().fromName));
+  readonly toBulbapediaUrl = computed(() => this.pokemonService.getBulbapediaPokemonUrl(this.evolution().toName));
+  readonly fromPokedexNumber = computed(() => this.pokemonService.formatPokedexNumber(this.evolution().fromId));
+  readonly toPokedexNumber = computed(() => this.pokemonService.formatPokedexNumber(this.evolution().toId));
 }

@@ -54,4 +54,18 @@ export class PokemonService {
     if (typeof id === 'string') return id;
     return `#${String(id).padStart(3, '0')}`;
   }
+
+  /**
+   * Standard sprite-error handler shared across all Pokémon sprite `<img>` elements.
+   * First attempt uses the ruby-sapphire fallback; second attempt uses the pokeball icon.
+   */
+  handleSpriteError(event: Event, id: number | string): void {
+    const img = event.target as HTMLImageElement;
+    if (!img.dataset['fallback']) {
+      img.dataset['fallback'] = '1';
+      img.src = this.getFallbackSpriteUrl(id);
+    } else {
+      img.src = 'pokeball_icon.png';
+    }
+  }
 }

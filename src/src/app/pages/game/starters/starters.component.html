@@ -1,14 +1,11 @@
 <div class="starters">
-  <div class="page-header mb-4">
-    <h2 class="page-title">
-      <i class="bi bi-egg-fill me-2"></i>Starters
-    </h2>
-    @if (gamePair) {
+  <app-page-header icon="egg-fill" title="Starters">
+    @if (gamePair(); as gp) {
       <p class="text-body-secondary mb-0">
-        How to obtain all starter Pokémon in <strong>{{ gamePair.displayName }}</strong> on Switch.
+        How to obtain all starter Pokémon in <strong>{{ gp.displayName }}</strong> on Switch.
       </p>
     }
-  </div>
+  </app-page-header>
 
   <!-- Trade notice -->
   <div class="alert trade-notice d-flex gap-3 align-items-start mb-4">
@@ -23,28 +20,28 @@
     </div>
   </div>
 
-  @if (starterGroups.length > 0) {
+  @if (starterGroups().length > 0) {
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 mb-5">
-      @for (starter of starterGroups[0].starters; track starter.id) {
+      @for (starter of starterGroups()[0].starters; track starter.id) {
         <div class="col">
           <div class="starter-card card shadow-sm h-100"
-               [ngStyle]="accentGradient ? {'--starter-gradient': accentGradient} : {}"
-               [class.starter-card-gradient]="!!accentGradient">
+               [ngStyle]="accentGradient() ? {'--accent-gradient': accentGradient()} : {}"
+               [class.card-gradient-border]="!!accentGradient()">
             <div class="card-body d-flex flex-column align-items-center text-center p-4">
               <!-- Sprite -->
               <div class="sprite-wrapper mb-2">
                 <img
-                  [src]="getSpriteUrl(starter.id)"
+                  [src]="pokemonService.getSpriteUrl(starter.id)"
                   [alt]="starter.name"
                   class="pokemon-sprite"
-                  (error)="onSpriteError($event, starter.id)"
+                  (error)="pokemonService.handleSpriteError($event, starter.id)"
                 >
               </div>
 
-              <span class="pokedex-number mb-1">{{ getPokedexNumber(starter.id) }}</span>
+              <span class="pokedex-number mb-1">{{ pokemonService.formatPokedexNumber(starter.id) }}</span>
 
               <h5 class="card-title mb-2">
-                <a [href]="getBulbapediaUrl(starter.name)" target="_blank" rel="noopener noreferrer"
+                <a [href]="pokemonService.getBulbapediaPokemonUrl(starter.name)" target="_blank" rel="noopener noreferrer"
                    class="bulbapedia-link">
                   {{ starter.name }}
                   <i class="bi bi-box-arrow-up-right ms-1 ext-link-icon"></i>
@@ -66,10 +63,7 @@
       }
     </div>
   } @else {
-    <div class="empty-state text-center py-5 text-muted">
-      <i class="bi bi-search fs-1 d-block mb-3"></i>
-      <p>No starter data found.</p>
-    </div>
+    <app-empty-state icon="search" message="No starter data found." />
   }
 
   <!-- Johto / other starters note -->

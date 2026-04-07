@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ALL_GAME_PAIRS } from '../../../data/games.registry';
 import { GamePairData } from '../../models/pokemon.model';
@@ -9,11 +9,11 @@ import { ThemeService, ThemePreference } from '../../services/theme.service';
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
   readonly gamePairs: GamePairData[] = ALL_GAME_PAIRS;
-
-  constructor(public themeService: ThemeService) {}
+  protected readonly themeService = inject(ThemeService);
 
   setTheme(pref: ThemePreference): void {
     this.themeService.setPreference(pref);

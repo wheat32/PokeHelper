@@ -1,3 +1,5 @@
+/* .ext-link-icon and base .notes-text are defined globally in styles.css. */
+
 .pokemon-card {
   border-radius: var(--border-radius);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -51,13 +53,7 @@
   text-decoration: underline;
 }
 
-.ext-link-icon {
-  font-size: 0.65em;
-  vertical-align: super;
-  opacity: 0.6;
-}
-
 .notes-text {
+  /* Extends global .notes-text with an explicit color */
   color: var(--bs-secondary-color);
-  font-style: italic;
 }

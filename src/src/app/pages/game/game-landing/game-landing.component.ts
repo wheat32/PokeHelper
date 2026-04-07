@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { getGamePairById } from '../../../data/games.registry';
-import { GamePairData } from '../../../shared/models/pokemon.model';
+import { GamePageBase } from '../../../shared/base/game-page.base';
 
 interface GuideSection {
   icon: string;
@@ -16,11 +14,10 @@ interface GuideSection {
   imports: [RouterLink],
   templateUrl: './game-landing.component.html',
   styleUrl: './game-landing.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GameLandingComponent implements OnInit {
-  gamePair: GamePairData | undefined;
-
-  sections: GuideSection[] = [
+export class GameLandingComponent extends GamePageBase {
+  readonly sections: GuideSection[] = [
     {
       icon: 'star-fill',
       label: 'Version Exclusives',
@@ -52,12 +49,4 @@ export class GameLandingComponent implements OnInit {
       route: 'obedience',
     },
   ];
-
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit(): void {
-    const pairId = this.route.parent?.snapshot.paramMap.get('pairId');
-    this.gamePair = pairId ? getGamePairById(pairId) : undefined;
-  }
 }
-
