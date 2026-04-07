@@ -10,7 +10,8 @@ import { PokemonService } from '../../services/pokemon.service';
   styleUrl: './trade-evolution-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TradeEvolutionCardComponent {
+export class TradeEvolutionCardComponent
+{
   readonly evolution = input.required<TradeEvolution>();
   /**
    * Optional CSS gradient for the top border.

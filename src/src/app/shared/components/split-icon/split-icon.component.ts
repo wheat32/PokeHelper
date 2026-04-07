@@ -7,7 +7,8 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
   styleUrl: './split-icon.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SplitIconComponent {
+export class SplitIconComponent
+{
   /** Two Bootstrap Icons icon names, e.g. ['fire', 'tree'] */
   readonly icons = input.required<[string, string]>();
   /** CSS colours for each half, e.g. ['#cc0000', '#2e7d32'] */

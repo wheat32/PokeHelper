@@ -12,7 +12,8 @@ import { SplitIconComponent } from '../../../shared/components/split-icon/split-
   styleUrl: './game-shell.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GameShellComponent {
+export class GameShellComponent
+{
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
 
@@ -20,15 +21,19 @@ export class GameShellComponent {
     initialValue: this.route.snapshot.paramMap,
   });
 
-  readonly gamePair = computed<GamePairData | undefined>(() => {
+  readonly gamePair = computed<GamePairData | undefined>(() =>
+  {
     const pairId = this.paramMap().get('pairId');
     return pairId ? getGamePairById(pairId) : undefined;
   });
 
-  constructor() {
+  constructor()
+  {
     // Navigate home if the pairId doesn't match any known game.
-    effect(() => {
-      if (!this.gamePair()) {
+    effect(() =>
+    {
+      if (!this.gamePair())
+      {
         this.router.navigate(['/']);
       }
     });

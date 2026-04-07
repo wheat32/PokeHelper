@@ -12,7 +12,8 @@
   </h2>
 
   <div class="d-flex flex-column gap-4">
-    @for (pair of gamePairs; track pair.pairId) {
+    @for (pair of gamePairs; track pair.pairId)
+    {
       <div class="game-card card shadow-sm"
            [class.game-card-gradient]="!!pair.iconColors"
            [style]="pair.iconColors
@@ -23,14 +24,17 @@
           <!-- Content side -->
           <div class="card-content p-4 p-lg-5 flex-grow-1">
             <div class="d-flex align-items-center gap-3 mb-3">
-              @if (pair.icons && pair.iconColors) {
+              @if (pair.icons && pair.iconColors)
+              {
                 <app-split-icon
                   [icons]="pair.icons"
                   [colors]="pair.iconColors"
                   [size]="64"
                   [borderRadius]="10"
                 />
-              } @else {
+              }
+              @else
+              {
                 <div class="game-icon-wrapper">
                   <i class="bi bi-{{ pair.icon }} game-icon"></i>
                 </div>
@@ -41,7 +45,8 @@
               </div>
             </div>
 
-            @if (pair.description) {
+            @if (pair.description)
+            {
               <p class="game-card-desc mb-4">{{ pair.description }}</p>
             }
 
@@ -51,7 +56,8 @@
           </div>
 
           <!-- Map panel — visible on md+ only -->
-          @if (pair.mapImage) {
+          @if (pair.mapImage)
+          {
             <div class="card-map d-none d-md-block"
                  [style.background-image]="'url(' + pair.mapImage + ')'">
               <div class="card-map-fade"></div>

@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GamePageBase } from '../../../shared/base/game-page.base';
 
-interface GuideSection {
+interface GuideSection
+{
   icon: string;
   label: string;
   description: string;
@@ -16,7 +17,8 @@ interface GuideSection {
   styleUrl: './game-landing.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GameLandingComponent extends GamePageBase {
+export class GameLandingComponent extends GamePageBase
+{
   readonly sections: GuideSection[] = [
     {
       icon: 'star-fill',

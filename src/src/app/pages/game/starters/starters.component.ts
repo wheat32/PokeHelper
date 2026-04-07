@@ -12,7 +12,8 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state/empt
   styleUrl: './starters.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StartersComponent extends GamePageBase {
+export class StartersComponent extends GamePageBase
+{
   protected readonly pokemonService = inject(PokemonService);
 
   readonly starterGroups = computed(() => this.gamePair()?.starterGroups ?? []);

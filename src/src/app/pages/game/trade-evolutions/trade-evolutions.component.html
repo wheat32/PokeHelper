@@ -1,6 +1,7 @@
 <div class="trade-evolutions">
   <app-page-header icon="arrow-left-right" title="Trade Evolutions">
-    @if (gamePair(); as gp) {
+    @if (gamePair(); as gp)
+    {
       <p class="text-body-secondary mb-0">
         These Pokémon only evolve by trading in <strong>{{ gp.displayName }}</strong>.
         Some require a held item during the trade.
@@ -8,15 +9,19 @@
     }
   </app-page-header>
 
-  @if (tradeEvolutions().length > 0) {
+  @if (tradeEvolutions().length > 0)
+  {
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
-      @for (evo of tradeEvolutions(); track evo.fromId) {
+      @for (evo of tradeEvolutions(); track evo.fromId)
+      {
         <div class="col">
           <app-trade-evolution-card [evolution]="evo" [accentGradient]="accentGradient()" />
         </div>
       }
     </div>
-  } @else {
+  }
+  @else
+  {
     <app-empty-state icon="search" message="No trade evolution data found." />
   }
 </div>

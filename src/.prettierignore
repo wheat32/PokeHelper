@@ -1,0 +1,6 @@
+# TypeScript and Angular HTML templates use Allman brace style, which Prettier
+# does not support. Excluding them here prevents an accidental `prettier --write`
+# from reformatting them back to K&R style.
+**/*.ts
+src/**/*.html
+

@@ -11,6 +11,7 @@ import { SplitIconComponent } from '../../shared/components/split-icon/split-ico
   styleUrl: './home.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
+export class HomeComponent
+{
   readonly gamePairs: GamePairData[] = ALL_GAME_PAIRS;
 }

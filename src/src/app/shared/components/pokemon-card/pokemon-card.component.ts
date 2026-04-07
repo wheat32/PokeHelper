@@ -10,7 +10,8 @@ import { PokemonService } from '../../services/pokemon.service';
   styleUrl: './pokemon-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PokemonCardComponent {
+export class PokemonCardComponent
+{
   readonly pokemon = input.required<PokemonExclusive>();
   /** Optional accent color for the top border (e.g. '#cc0000'). Overrides the CSS var. */
   readonly accentColor = input<string>();
@@ -21,7 +22,8 @@ export class PokemonCardComponent {
   readonly bulbapediaUrl = computed(() => this.pokemonService.getBulbapediaPokemonUrl(this.pokemon().name));
   readonly pokedexNumber = computed(() => this.pokemonService.formatPokedexNumber(this.pokemon().id));
 
-  getLocationUrl(location: string): string {
+  getLocationUrl(location: string): string
+  {
     return this.pokemonService.getBulbapediaLocationUrl(location);
   }
 }

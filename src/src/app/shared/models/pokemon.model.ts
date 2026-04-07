@@ -1,4 +1,5 @@
-export interface PokemonExclusive {
+export interface PokemonExclusive
+{
   /** National Pokédex ID (e.g. 23). For form variants use a string like '386-attack'. */
   id: number | string;
   name: string;
@@ -12,7 +13,8 @@ export interface PokemonExclusive {
   notes?: string;
 }
 
-export interface UnobtainablePokemon {
+export interface UnobtainablePokemon
+{
   id: number | string;
   name: string;
   /** Why this Pokémon cannot be obtained in-game. */
@@ -21,7 +23,8 @@ export interface UnobtainablePokemon {
   notes?: string;
 }
 
-export interface StarterOption {
+export interface StarterOption
+{
   id: number;
   name: string;
   /** How to obtain this starter (e.g. 'Choose at the start', 'Trade', 'Breed'). */
@@ -29,13 +32,15 @@ export interface StarterOption {
   notes?: string;
 }
 
-export interface StarterGroup {
+export interface StarterGroup
+{
   /** Label for this group of starters, e.g. 'Kanto Starters'. */
   groupName: string;
   starters: StarterOption[];
 }
 
-export interface TradeEvolution {
+export interface TradeEvolution
+{
   /** National Pokédex ID of the pre-evolution. */
   fromId: number | string;
   fromName: string;
@@ -48,7 +53,8 @@ export interface TradeEvolution {
   notes?: string;
 }
 
-export interface GameData {
+export interface GameData
+{
   /** URL-friendly slug used in routing, e.g. 'firered-leafgreen'. */
   gameId: string;
   /** Human-readable title shown in the UI. */
@@ -70,7 +76,8 @@ export interface GameData {
 }
 
 /** A pair of version-exclusive games (e.g. FireRed & LeafGreen). */
-export interface GamePairData {
+export interface GamePairData
+{
   /** URL-friendly slug, e.g. 'firered-leafgreen'. */
   pairId: string;
   /** Human-readable title, e.g. 'FireRed & LeafGreen'. */

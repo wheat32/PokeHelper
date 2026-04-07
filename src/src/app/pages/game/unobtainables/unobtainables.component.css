@@ -1,4 +1,5 @@
-.switch-notice {
+.switch-notice
+{
   background-color: var(--color-accent);
   color: var(--color-text);
   border: none;
@@ -6,12 +7,14 @@
   opacity: 0.92;
 }
 
-.switch-notice a {
+.switch-notice a
+{
   color: inherit;
   font-weight: 600;
 }
 
-.unobtainable-card {
+.unobtainable-card
+{
   border-radius: var(--border-radius);
   border-top: 4px solid var(--bs-danger, #dc3545);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -19,12 +22,14 @@
   position: relative;
 }
 
-.unobtainable-card:hover {
+.unobtainable-card:hover
+{
   transform: translateY(-2px);
   box-shadow: var(--shadow-md) !important;
 }
 
-.sprite-wrapper {
+.sprite-wrapper
+{
   background-color: var(--color-bg);
   border-radius: 50%;
   width: 96px;
@@ -34,13 +39,15 @@
   justify-content: center;
 }
 
-.unobtainable-badge {
+.unobtainable-badge
+{
   background-color: var(--bs-danger, #dc3545);
   color: #fff;
   font-size: 0.7rem;
 }
 
-.reason-text {
+.reason-text
+{
   font-size: var(--font-size-sm);
   font-weight: 600;
   margin-bottom: 0.25rem;

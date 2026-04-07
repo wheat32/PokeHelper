@@ -2,7 +2,8 @@
 
 /* PokeHelper Global Styles */
 
-:root {
+:root
+{
   /* Brand Colors */
   --color-primary: #cc0000;         /* FireRed red */
   --color-primary-dark: #990000;
@@ -57,7 +58,8 @@
 
 /* Dark mode overrides — Bootstrap handles cards/text/borders via data-bs-theme="dark".
    We only need to override our custom CSS variables that Bootstrap doesn't know about. */
-[data-theme="dark"] {
+[data-theme="dark"]
+{
   --color-bg: #121212;
   --color-surface: #1e1e1e;
   --color-border: #333333;
@@ -75,7 +77,8 @@
 }
 
 /* Base */
-body {
+body
+{
   font-family: var(--font-family-base);
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -83,7 +86,8 @@ body {
 }
 
 /* Sprite utility */
-.pokemon-sprite {
+.pokemon-sprite
+{
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   width: 96px;
@@ -91,7 +95,8 @@ body {
   object-fit: contain;
 }
 
-.pokemon-sprite-sm {
+.pokemon-sprite-sm
+{
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   width: 64px;
@@ -99,7 +104,8 @@ body {
   object-fit: contain;
 }
 
-.pokemon-sprite-lg {
+.pokemon-sprite-lg
+{
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   width: 128px;
@@ -108,54 +114,64 @@ body {
 }
 
 /* Pokedex number badge */
-.pokedex-number {
+.pokedex-number
+{
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   font-weight: 600;
 }
 
 /* Bulbapedia links */
-a.bulbapedia-link {
+a.bulbapedia-link
+{
   color: inherit;
   text-decoration: none;
   font-weight: 600;
 }
-a.bulbapedia-link:hover {
+
+a.bulbapedia-link:hover
+{
   text-decoration: underline;
   color: var(--color-primary);
 }
 
 /* Game-specific accent utilities */
-.game-firered {
+.game-firered
+{
   --game-color: var(--color-firered);
   --game-color-dark: var(--color-firered-dark);
   --game-color-light: var(--color-firered-light);
   --game-color-bg: var(--color-firered-bg);
 }
 
-.game-leafgreen {
+.game-leafgreen
+{
   --game-color: var(--color-leafgreen);
   --game-color-dark: var(--color-leafgreen-dark);
   --game-color-light: var(--color-leafgreen-light);
   --game-color-bg: var(--color-leafgreen-bg);
 }
 
-.game-pair-gen3 {
+.game-pair-gen3
+{
   --game-color: var(--color-primary);
   --game-color-dark: var(--color-primary-dark);
   --game-color-light: var(--color-primary-light);
   --game-color-bg: var(--color-firered-bg);
 }
 
-.game-accent-border {
+.game-accent-border
+{
   border-top: 4px solid var(--game-color);
 }
 
-.game-accent-bg {
+.game-accent-bg
+{
   background-color: var(--game-color-bg);
 }
 
-.game-badge {
+.game-badge
+{
   background-color: var(--game-color);
   color: #fff;
 }
@@ -168,21 +184,24 @@ a.bulbapedia-link:hover {
 /* ── Page-level shared utilities ─────────────────────────────────────────── */
 
 /* Page section title — used by all game-page child components */
-.page-title {
+.page-title
+{
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--game-color, var(--color-primary));
 }
 
 /* External-link superscript icon (Bulbapedia, etc.) */
-.ext-link-icon {
+.ext-link-icon
+{
   font-size: 0.65em;
   vertical-align: super;
   opacity: 0.6;
 }
 
 /* Italic notes / extra info text */
-.notes-text {
+.notes-text
+{
   font-style: italic;
   line-height: 1.5;
 }
@@ -197,11 +216,13 @@ a.bulbapedia-link:hover {
  *   [class.card-gradient-border]="!!accentGradient"
  *   [ngStyle]="accentGradient ? {'--accent-gradient': accentGradient} : {}"
  */
-.card-gradient-border {
+.card-gradient-border
+{
   border-top: none !important;
 }
 
-.card-gradient-border::before {
+.card-gradient-border::before
+{
   content: '';
   position: absolute;
   top: 0;
@@ -212,4 +233,3 @@ a.bulbapedia-link:hover {
   background: var(--accent-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
   z-index: 1;
 }
-

@@ -10,7 +10,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   styleUrl: './page-header.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageHeaderComponent {
+export class PageHeaderComponent
+{
   readonly icon = input.required<string>();
   readonly title = input.required<string>();
 }

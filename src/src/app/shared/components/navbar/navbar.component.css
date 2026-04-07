@@ -1,30 +1,36 @@
-#main-navbar {
+#main-navbar
+{
   background-color: var(--navbar-bg);
   box-shadow: var(--shadow-md);
 }
 
 .navbar-brand,
-.nav-link {
+.nav-link
+{
   color: var(--navbar-text) !important;
 }
 
 .nav-link:hover,
-.nav-link.active {
+.nav-link.active
+{
   opacity: 0.85;
 }
 
-.navbar-logo {
+.navbar-logo
+{
   width: 32px;
   height: 32px;
 }
 
-.navbar-title {
+.navbar-title
+{
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
-.dropdown-menu {
+.dropdown-menu
+{
   border: none;
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius);
@@ -32,26 +38,31 @@
 
 /* Neutral hover/active for all navbar dropdowns — no game-specific colours */
 .dropdown-item:hover,
-.dropdown-item:focus {
+.dropdown-item:focus
+{
   background-color: var(--bs-secondary-bg);
   color: var(--bs-emphasis-color);
 }
 
-.dropdown-item.active {
+.dropdown-item.active
+{
   background-color: var(--bs-secondary-bg);
   color: var(--bs-emphasis-color);
   font-weight: 700;
 }
 
-.navbar-toggler {
+.navbar-toggler
+{
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-.navbar-toggler-icon {
+.navbar-toggler-icon
+{
   filter: brightness(0) invert(1);
 }
 
-.theme-toggle {
+.theme-toggle
+{
   color: var(--navbar-text);
   font-size: 1rem;
   padding: 0.25rem 0.6rem;
@@ -64,7 +75,8 @@
   gap: 0.35rem;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover
+{
   background-color: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.6);
   color: var(--navbar-text);
@@ -73,7 +85,8 @@
 /* ── Game nav dropdown ──────────────────────────────────────── */
 
 /* Small inline caret next to the game name */
-.nav-caret {
+.nav-caret
+{
   font-size: 0.65rem;
   vertical-align: middle;
   opacity: 0.7;
@@ -81,21 +94,26 @@
 }
 
 /* Desktop: open dropdown on hover */
-@media (min-width: 992px) {
-  .game-nav-item:hover > .game-dropdown-menu {
+@media (min-width: 992px)
+{
+  .game-nav-item:hover > .game-dropdown-menu
+  {
     display: block;
     margin-top: 0; /* no gap so hover is seamless */
   }
 
-  .game-nav-item:hover .nav-caret {
+  .game-nav-item:hover .nav-caret
+  {
     transform: rotate(180deg);
     opacity: 1;
   }
 }
 
 /* Mobile: show sub-items statically, styled to match the navbar palette */
-@media (max-width: 991px) {
-  .game-dropdown-menu {
+@media (max-width: 991px)
+{
+  .game-dropdown-menu
+  {
     position: static !important;
     display: block !important;
     box-shadow: none !important;
@@ -105,7 +123,8 @@
     margin: 0;
   }
 
-  .game-dropdown-menu .dropdown-item {
+  .game-dropdown-menu .dropdown-item
+  {
     color: rgba(255, 255, 255, 0.82) !important;
     font-size: 0.875rem;
     padding: 0.3rem 0.75rem;
@@ -113,18 +132,21 @@
   }
 
   .game-dropdown-menu .dropdown-item:hover,
-  .game-dropdown-menu .dropdown-item:focus {
+  .game-dropdown-menu .dropdown-item:focus
+  {
     background-color: rgba(255, 255, 255, 0.12) !important;
     color: #fff !important;
   }
 
-  .nav-caret {
+  .nav-caret
+  {
     display: none;
   }
 }
 
 /* Show a small chevron as the caret, tighter than Bootstrap's default */
-.theme-toggle::after {
+.theme-toggle::after
+{
   font-family: "bootstrap-icons";
   content: "\f282"; /* bi-chevron-down */
   font-size: 0.7rem;
@@ -132,4 +154,3 @@
   border: none;  /* override Bootstrap's border-based caret */
   margin: 0;
 }
-

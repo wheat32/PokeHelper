@@ -13,7 +13,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   templateUrl: './empty-state.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmptyStateComponent {
+export class EmptyStateComponent
+{
   readonly icon = input.required<string>();
   readonly message = input.required<string>();
 }

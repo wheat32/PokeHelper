@@ -3,7 +3,8 @@ import { NgClass, NgStyle } from '@angular/common';
 import { GamePageBase } from '../../../shared/base/game-page.base';
 import { PageHeaderComponent } from '../../../shared/components/page-header/page-header.component';
 
-interface ObedienceRow {
+interface ObedienceRow
+{
   badges: number;
   badgeName: string;
   gymLeader: string;
@@ -19,7 +20,8 @@ interface ObedienceRow {
   styleUrl: './obedience.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ObedienceComponent extends GamePageBase {
+export class ObedienceComponent extends GamePageBase
+{
   obedienceRows: ObedienceRow[] = [
     { badges: 0,  badgeName: 'No Badges',      gymLeader: '—',         city: '—',               levelCap: 10,   isMilestone: true  },
     { badges: 1,  badgeName: 'Boulder Badge',   gymLeader: 'Brock',     city: 'Pewter City',     levelCap: 10,   isMilestone: false },

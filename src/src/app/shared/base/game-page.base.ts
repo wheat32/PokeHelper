@@ -12,7 +12,8 @@ import { GamePairData } from '../models/pokemon.model';
  * parent route's `:pairId` param — no lifecycle hooks required in subclasses.
  */
 @Directive()
-export abstract class GamePageBase {
+export abstract class GamePageBase
+{
   private readonly route = inject(ActivatedRoute);
 
   private readonly parentParamMap = toSignal(
@@ -20,13 +21,15 @@ export abstract class GamePageBase {
   );
 
   /** The loaded game pair, or undefined if the pairId is unknown. */
-  readonly gamePair = computed<GamePairData | undefined>(() => {
+  readonly gamePair = computed<GamePairData | undefined>(() =>
+  {
     const pairId = this.parentParamMap()?.get('pairId') ?? null;
     return pairId ? getGamePairById(pairId) : undefined;
   });
 
   /** CSS gradient string derived from the game pair's icon colors, or undefined. */
-  readonly accentGradient = computed(() => {
+  readonly accentGradient = computed(() =>
+  {
     const colors = this.gamePair()?.iconColors;
     if (!colors) return undefined;
     return `linear-gradient(to right, ${colors[0]} 0%, ${colors[0]} 40%, ${colors[1]} 60%, ${colors[1]} 100%)`;

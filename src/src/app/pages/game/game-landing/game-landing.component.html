@@ -7,8 +7,14 @@
       <!-- Text side -->
       <div class="welcome-content p-4 flex-grow-1">
         <h2 class="welcome-title mb-1">
-          @if (gp) { {{ gp.displayName }} Guide }
-          @else { Game Guide }
+          @if (gp)
+          {
+            {{ gp.displayName }} Guide
+          }
+          @else
+          {
+            Game Guide
+          }
         </h2>
         <p class="text-body-secondary mb-0">
           Generation {{ gp?.generation }} · Nintendo Switch
@@ -17,7 +23,8 @@
       </div>
 
       <!-- Map panel — md+ only -->
-      @if (gp?.mapImage) {
+      @if (gp?.mapImage)
+      {
         <div class="welcome-map d-none d-md-block"
              [style.background-image]="'url(' + gp!.mapImage + ')'">
           <div class="welcome-map-fade"></div>
@@ -28,7 +35,8 @@
 
   <!-- Section cards -->
   <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
-    @for (section of sections; track section.route) {
+    @for (section of sections; track section.route)
+    {
       <div class="col">
         <a [routerLink]="section.route"
            class="section-card card shadow-sm h-100 text-decoration-none">

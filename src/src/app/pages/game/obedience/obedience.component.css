@@ -2,14 +2,16 @@
 
 /* ── Notices ─────────────────────────────────────────────────────────────── */
 
-.info-notice {
+.info-notice
+{
   background-color: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
   border: 1px solid color-mix(in srgb, var(--color-primary) 22%, transparent);
   border-radius: var(--border-radius);
   color: var(--color-text);
 }
 
-.special-notice {
+.special-notice
+{
   background-color: color-mix(in srgb, #f5a623 12%, var(--color-surface));
   border: 1px solid color-mix(in srgb, #f5a623 30%, transparent);
   border-radius: var(--border-radius);
@@ -18,7 +20,8 @@
 
 /* ── Table card ───────────────────────────────────────────────────────────── */
 
-.table-card {
+.table-card
+{
   border-radius: var(--border-radius);
   border-top: 4px solid var(--game-color, var(--color-primary));
   background-color: var(--color-surface);
@@ -29,11 +32,13 @@
 
 /* ── Obedience table ──────────────────────────────────────────────────────── */
 
-.obedience-table {
+.obedience-table
+{
   font-size: var(--font-size-sm);
 }
 
-.obedience-table thead th {
+.obedience-table thead th
+{
   background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
   color: var(--color-text);
   font-weight: 700;
@@ -45,27 +50,32 @@
   white-space: nowrap;
 }
 
-.obedience-table td {
+.obedience-table td
+{
   padding: 0.65rem 1rem;
   vertical-align: middle;
   border-color: var(--color-border);
 }
 
 /* Milestone rows get a subtle left accent */
-.milestone-row {
+.milestone-row
+{
   background-color: color-mix(in srgb, var(--color-primary) 5%, var(--color-surface));
 }
 
-.milestone-row td:first-child {
+.milestone-row td:first-child
+{
   border-left: 3px solid var(--game-color, var(--color-primary));
 }
 
-.unchanged-row {
+.unchanged-row
+{
   opacity: 0.75;
 }
 
 /* Badge count pill */
-.badge-count-pill {
+.badge-count-pill
+{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -78,19 +88,22 @@
   font-size: 0.85rem;
 }
 
-.badge-count-pill.milestone-pill {
+.badge-count-pill.milestone-pill
+{
   background-color: var(--game-color, var(--color-primary));
   color: #fff;
 }
 
 /* Badge name in milestone rows */
-.milestone-badge-name {
+.milestone-badge-name
+{
   font-weight: 600;
   color: var(--game-color, var(--color-primary));
 }
 
 /* Level cap badge */
-.level-cap-badge {
+.level-cap-badge
+{
   display: inline-block;
   padding: 0.2rem 0.55rem;
   border-radius: var(--border-radius-sm);
@@ -100,53 +113,62 @@
   font-weight: 600;
 }
 
-.level-cap-badge.level-cap-milestone {
+.level-cap-badge.level-cap-milestone
+{
   background-color: color-mix(in srgb, var(--color-primary) 15%, var(--color-surface));
   color: var(--game-color, var(--color-primary));
 }
 
-.level-cap-badge.level-cap-all {
+.level-cap-badge.level-cap-all
+{
   background-color: color-mix(in srgb, #2e7d32 15%, var(--color-surface));
   color: #2e7d32;
 }
 
-/* ── Legend ───────────────────────────────────────────────────────────────── */
+/* ── Legend ────────────────���──────────────────────────────────────────────── */
 
-.legend-dot {
+.legend-dot
+{
   width: 10px;
   height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
-.milestone-dot {
+.milestone-dot
+{
   background-color: var(--game-color, var(--color-primary));
 }
 
-.unchanged-dot {
+.unchanged-dot
+{
   background-color: var(--color-border);
 }
 
 /* ── Mechanics section ────────────────────────────────────────────────────── */
 
-.mechanics-section {
+.mechanics-section
+{
   border-radius: var(--border-radius);
   background-color: var(--color-surface);
 }
 
-.mechanics-header {
+.mechanics-header
+{
   background-color: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
   color: var(--color-text);
   border-bottom: 1px solid var(--color-border);
   font-size: var(--font-size-sm);
 }
 
-.mechanics-body {
+.mechanics-body
+{
   font-size: var(--font-size-sm);
   line-height: 1.7;
 }
 
-.formula-block {
+.formula-block
+{
   background-color: var(--color-bg);
   border-left: 3px solid var(--game-color, var(--color-primary));
   border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
@@ -154,17 +176,19 @@
   font-size: 0.9rem;
 }
 
-.mechanics-list {
+.mechanics-list
+{
   padding-left: 1.25rem;
   margin-bottom: 1rem;
 }
 
-.mechanics-list li {
+.mechanics-list li
+{
   margin-bottom: 0.35rem;
 }
 
-.mechanics-list ul {
+.mechanics-list ul
+{
   padding-left: 1.25rem;
   margin-top: 0.35rem;
 }
-

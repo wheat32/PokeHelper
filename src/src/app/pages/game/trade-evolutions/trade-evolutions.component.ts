@@ -11,6 +11,7 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state/empt
   styleUrl: './trade-evolutions.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TradeEvolutionsComponent extends GamePageBase {
+export class TradeEvolutionsComponent extends GamePageBase
+{
   readonly tradeEvolutions = computed(() => this.gamePair()?.sharedTradeEvolutions ?? []);
 }

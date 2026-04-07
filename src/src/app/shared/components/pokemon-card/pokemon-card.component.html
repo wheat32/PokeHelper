@@ -21,24 +21,28 @@
     </h5>
 
     <!-- Evolution info -->
-    @if (pokemon().evolvesFrom) {
+    @if (pokemon().evolvesFrom)
+    {
       <div class="evolution-badge badge mb-2">
         <i class="bi bi-arrow-up-circle me-1"></i>
         Evolves from {{ pokemon().evolvesFrom }}
-        @if (pokemon().evolutionMethod) {
+        @if (pokemon().evolutionMethod)
+        {
           <span class="ms-1">({{ pokemon().evolutionMethod }})</span>
         }
       </div>
     }
 
     <!-- Locations -->
-    @if (pokemon().locations && pokemon().locations.length > 0) {
+    @if (pokemon().locations && pokemon().locations.length > 0)
+    {
       <div class="locations w-100">
         <p class="locations-label mb-1">
           <i class="bi bi-geo-alt-fill me-1"></i>Locations
         </p>
         <ul class="list-unstyled mb-0">
-          @for (loc of pokemon().locations; track loc) {
+          @for (loc of pokemon().locations; track loc)
+          {
             <li class="location-item">
               <a [href]="getLocationUrl(loc)" target="_blank" rel="noopener noreferrer"
                  class="location-link">
@@ -48,7 +52,9 @@
           }
         </ul>
       </div>
-    } @else {
+    }
+    @else
+    {
       <p class="text-body-secondary small mb-0">
         <i class="bi bi-info-circle me-1"></i>
         {{ pokemon().notes ?? 'Not found in the wild' }}
@@ -56,7 +62,8 @@
     }
 
     <!-- Extra notes (when there are locations too) -->
-    @if (pokemon().notes && pokemon().locations && pokemon().locations.length > 0) {
+    @if (pokemon().notes && pokemon().locations && pokemon().locations.length > 0)
+    {
       <p class="notes-text small mt-2 mb-0">
         <i class="bi bi-info-circle me-1"></i>{{ pokemon().notes }}
       </p>

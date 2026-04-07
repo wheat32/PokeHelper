@@ -11,7 +11,8 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state/empt
   styleUrl: './version-exclusives.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VersionExclusivesComponent extends GamePageBase {
+export class VersionExclusivesComponent extends GamePageBase
+{
   readonly versionA = computed(() => this.gamePair()?.versions[0]);
   readonly versionB = computed(() => this.gamePair()?.versions[1]);
 }

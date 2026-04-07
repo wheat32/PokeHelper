@@ -1,6 +1,7 @@
 <div class="starters">
   <app-page-header icon="egg-fill" title="Starters">
-    @if (gamePair(); as gp) {
+    @if (gamePair(); as gp)
+    {
       <p class="text-body-secondary mb-0">
         How to obtain all starter Pokémon in <strong>{{ gp.displayName }}</strong> on Switch.
       </p>
@@ -20,9 +21,11 @@
     </div>
   </div>
 
-  @if (starterGroups().length > 0) {
+  @if (starterGroups().length > 0)
+  {
     <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 mb-5">
-      @for (starter of starterGroups()[0].starters; track starter.id) {
+      @for (starter of starterGroups()[0].starters; track starter.id)
+      {
         <div class="col">
           <div class="starter-card card shadow-sm h-100"
                [ngStyle]="accentGradient() ? {'--accent-gradient': accentGradient()} : {}"
@@ -52,7 +55,8 @@
                 <i class="bi bi-arrow-right-circle me-1"></i>{{ starter.method }}
               </span>
 
-              @if (starter.notes) {
+              @if (starter.notes)
+              {
                 <p class="notes-text small text-body-secondary mb-0">
                   <i class="bi bi-info-circle me-1"></i>{{ starter.notes }}
                 </p>
@@ -62,7 +66,9 @@
         </div>
       }
     </div>
-  } @else {
+  }
+  @else
+  {
     <app-empty-state icon="search" message="No starter data found." />
   }
 

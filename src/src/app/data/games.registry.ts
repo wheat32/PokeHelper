@@ -6,9 +6,11 @@ import { leafgreenData } from './leafgreen.data';
  * Builds the shared (de-duplicated) trade evolutions for a pair.
  * Trades that exist in both versions are merged; version-specific notes are kept.
  */
-function buildSharedTrades(a: GameData, b: GameData): TradeEvolution[] {
+function buildSharedTrades(a: GameData, b: GameData): TradeEvolution[]
+{
   const seen = new Map<string, TradeEvolution>();
-  for (const t of [...a.tradeEvolutions, ...b.tradeEvolutions]) {
+  for (const t of [...a.tradeEvolutions, ...b.tradeEvolutions])
+  {
     const key = `${t.fromId}-${t.toId}`;
     if (!seen.has(key)) seen.set(key, t);
   }
@@ -81,13 +83,7 @@ export const fireredLeafgreenPair: GamePairData = {
  */
 export const ALL_GAME_PAIRS: GamePairData[] = [fireredLeafgreenPair];
 
-/** Legacy flat list kept for any code that still needs individual GameData. */
-export const ALL_GAMES: GameData[] = [fireredData, leafgreenData];
-
-export function getGamePairById(pairId: string): GamePairData | undefined {
+export function getGamePairById(pairId: string): GamePairData | undefined
+{
   return ALL_GAME_PAIRS.find((p) => p.pairId === pairId);
-}
-
-export function getGameById(gameId: string): GameData | undefined {
-  return ALL_GAMES.find((g) => g.gameId === gameId);
 }

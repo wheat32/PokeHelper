@@ -12,7 +12,8 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state/empt
   styleUrl: './unobtainables.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UnobtainablesComponent extends GamePageBase {
+export class UnobtainablesComponent extends GamePageBase
+{
   protected readonly pokemonService = inject(PokemonService);
 
   readonly unobtainables = computed(() => this.gamePair()?.unobtainables ?? []);

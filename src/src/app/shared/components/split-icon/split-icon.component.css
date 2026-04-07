@@ -1,8 +1,10 @@
-:host {
+:host
+{
   display: inline-block;
 }
 
-.split-icon-root {
+.split-icon-root
+{
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -10,7 +12,8 @@
   font-size: 1rem;
 }
 
-.split-half {
+.split-half
+{
   position: absolute;
   inset: 0;
   display: flex;
@@ -20,33 +23,39 @@
 }
 
 /* Top-left triangle via clip-path (fire lives here) */
-.split-top {
+.split-top
+{
   clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 /* Bottom-right triangle via clip-path (leaf lives here) */
-.split-bottom {
+.split-bottom
+{
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
-.split-bi-icon {
+.split-bi-icon
+{
   position: absolute;
 }
 
-.split-top .split-bi-icon {
+.split-top .split-bi-icon
+{
   top: 26%;
   left: 26%;
   transform: translate(-50%, -50%);
 }
 
-.split-bottom .split-bi-icon {
+.split-bottom .split-bi-icon
+{
   bottom: 26%;
   right: 26%;
   transform: translate(50%, 50%) rotate(45deg);
 }
 
 /* White diagonal divider line — runs ↗ from bottom-left to top-right, between the two icons */
-.split-divider {
+.split-divider
+{
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -59,4 +68,3 @@
   );
   transform: rotate(90deg);
 }
-

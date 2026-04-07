@@ -1,16 +1,20 @@
-@if (gamePair(); as gp) {
+@if (gamePair(); as gp)
+{
   <div class="game-shell {{ gp.themeClass }}">
     <!-- Game Header -->
     <div class="game-header">
       <div class="container-xl py-4 d-flex align-items-center gap-3">
-        @if (gp.icons && gp.iconColors) {
+        @if (gp.icons && gp.iconColors)
+        {
           <app-split-icon
             [icons]="gp.icons"
             [colors]="gp.iconColors"
             [size]="60"
             [borderRadius]="8"
           />
-        } @else {
+        }
+        @else
+        {
           <div class="header-icon-wrapper">
             <i class="bi bi-{{ gp.icon }} header-icon"></i>
           </div>

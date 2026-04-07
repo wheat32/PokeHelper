@@ -11,11 +11,13 @@ import { ThemeService, ThemePreference } from '../../services/theme.service';
   styleUrl: './navbar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarComponent {
+export class NavbarComponent
+{
   readonly gamePairs: GamePairData[] = ALL_GAME_PAIRS;
   protected readonly themeService = inject(ThemeService);
 
-  setTheme(pref: ThemePreference): void {
+  setTheme(pref: ThemePreference): void
+  {
     this.themeService.setPreference(pref);
   }
 }

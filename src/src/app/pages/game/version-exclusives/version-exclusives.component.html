@@ -1,6 +1,7 @@
 <div class="version-exclusives">
   <app-page-header icon="star-fill" title="Version Exclusives">
-    @if (gamePair()) {
+    @if (gamePair())
+    {
       <p class="text-body-secondary mb-0">
         Pokémon exclusive to each version. Trade between copies to complete your Pokédex!
       </p>
@@ -10,7 +11,8 @@
   @let va = versionA();
   @let vb = versionB();
 
-  @if (va && vb) {
+  @if (va && vb)
+  {
     <div class="row g-4">
       <!-- Version A column -->
       <div class="col-12 col-lg-6">
@@ -19,7 +21,8 @@
             <i class="bi bi-{{ va.icon }} me-2"></i>{{ va.displayName }} Only
           </div>
           <div class="row row-cols-2 row-cols-sm-3 row-cols-xl-4 g-2 mt-1">
-            @for (pokemon of va.exclusives; track pokemon.id) {
+            @for (pokemon of va.exclusives; track pokemon.id)
+            {
               <div class="col">
                 <app-pokemon-card [pokemon]="pokemon" [accentColor]="va.color" />
               </div>
@@ -35,7 +38,8 @@
             <i class="bi bi-{{ vb.icon }} me-2"></i>{{ vb.displayName }} Only
           </div>
           <div class="row row-cols-2 row-cols-sm-3 row-cols-xl-4 g-2 mt-1">
-            @for (pokemon of vb.exclusives; track pokemon.id) {
+            @for (pokemon of vb.exclusives; track pokemon.id)
+            {
               <div class="col">
                 <app-pokemon-card [pokemon]="pokemon" [accentColor]="vb.color" />
               </div>
@@ -44,7 +48,9 @@
         </div>
       </div>
     </div>
-  } @else {
+  }
+  @else
+  {
     <app-empty-state icon="search" message="No exclusive Pokémon data found." />
   }
 </div>

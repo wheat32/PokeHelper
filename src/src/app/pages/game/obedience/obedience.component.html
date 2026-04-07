@@ -1,6 +1,7 @@
 <div class="obedience">
   <app-page-header icon="shield-check" title="Pokémon Obedience">
-    @if (gamePair(); as gp) {
+    @if (gamePair(); as gp)
+    {
       <p class="text-body-secondary mb-0">
         Traded Pokémon may disobey in <strong>{{ gp.displayName }}</strong> if their level exceeds your current badge threshold.
         Only Kanto Gym Badges earned in your own game grant these thresholds.
@@ -36,7 +37,8 @@
             </tr>
           </thead>
           <tbody>
-            @for (row of obedienceRows; track row.badges) {
+            @for (row of obedienceRows; track row.badges)
+            {
               <tr [ngClass]="{'milestone-row': row.isMilestone, 'unchanged-row': !row.isMilestone}">
                 <td class="col-badges">
                   <span class="badge-count-pill" [ngClass]="{'milestone-pill': row.isMilestone}">
@@ -44,13 +46,18 @@
                   </span>
                 </td>
                 <td class="col-badge-name">
-                  @if (row.isMilestone && row.badges > 0) {
+                  @if (row.isMilestone && row.badges > 0)
+                  {
                     <span class="badge-name milestone-badge-name">
                       <i class="bi bi-award-fill me-1"></i>{{ row.badgeName }}
                     </span>
-                  } @else if (row.badges === 0) {
+                  }
+                  @else if (row.badges === 0)
+                  {
                     <span class="text-body-secondary fst-italic">{{ row.badgeName }}</span>
-                  } @else {
+                  }
+                  @else
+                  {
                     <span class="text-body-secondary">{{ row.badgeName }}</span>
                   }
                 </td>
@@ -59,9 +66,12 @@
                 <td class="col-cap">
                   <span class="level-cap-badge"
                         [ngClass]="{'level-cap-all': row.levelCap === null, 'level-cap-milestone': row.isMilestone}">
-                    @if (row.levelCap === null) {
+                    @if (row.levelCap === null)
+                    {
                       <i class="bi bi-check-circle-fill me-1"></i>All levels
-                    } @else {
+                    }
+                    @else
+                    {
                       Up to Lv. {{ row.levelCap }}
                     }
                   </span>
