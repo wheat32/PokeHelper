@@ -38,6 +38,18 @@
               <i class="bi bi-arrow-left-right me-2"></i>Trade Evolutions
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/', gamePair.pairId, 'starters']"
+               routerLinkActive="active">
+              <i class="bi bi-egg-fill me-2"></i>Starters
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/', gamePair.pairId, 'unobtainables']"
+               routerLinkActive="active">
+              <i class="bi bi-slash-circle me-2"></i>Unobtainables
+            </a>
+          </li>
         </ul>
       </div>
     </div>

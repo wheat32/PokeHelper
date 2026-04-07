@@ -1,0 +1,85 @@
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--game-color, var(--color-primary));
+}
+
+.trade-notice {
+  background-color: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+}
+
+.johto-notice {
+  background-color: color-mix(in srgb, var(--color-text-muted) 10%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-text-muted) 25%, transparent);
+  border-radius: var(--border-radius);
+  color: var(--color-text);
+}
+
+.group-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--game-color, var(--color-primary));
+  border-bottom: 2px solid var(--game-color, var(--color-primary));
+  padding-bottom: 0.4rem;
+}
+
+.starter-card {
+  border-radius: var(--border-radius);
+  border-top: 4px solid var(--game-color, var(--color-primary));
+  background-color: var(--color-surface);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.starter-card.starter-card-gradient {
+  border-top: none;
+}
+
+.starter-card.starter-card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background: var(--starter-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
+}
+
+.starter-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.sprite-wrapper {
+  background-color: var(--color-bg);
+  border-radius: 50%;
+  width: 112px;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-badge {
+  background-color: var(--game-color, var(--color-primary));
+  color: #fff;
+  font-size: 0.75rem;
+  white-space: normal;
+  text-align: center;
+}
+
+.notes-text {
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.ext-link-icon {
+  font-size: 0.65em;
+  vertical-align: super;
+  opacity: 0.6;
+}
+

@@ -1,0 +1,86 @@
+<div class="starters">
+  <div class="page-header mb-4">
+    <h2 class="page-title">
+      <i class="bi bi-egg-fill me-2"></i>Starters
+    </h2>
+    @if (gamePair) {
+      <p class="text-body-secondary mb-0">
+        How to obtain all starter Pokémon in <strong>{{ gamePair.displayName }}</strong> on Switch.
+      </p>
+    }
+  </div>
+
+  <!-- Trade notice -->
+  <div class="alert trade-notice d-flex gap-3 align-items-start mb-4">
+    <i class="bi bi-wifi-off fs-5 flex-shrink-0 mt-1"></i>
+    <div>
+      <strong>Local wireless only — no online play.</strong>
+      Trading in the Switch version works exactly as it did on Game Boy Advance, but via
+      built-in local wireless instead of a Game Link cable. Visit the
+      <strong>Pokémon Wireless Club</strong> on the second floor of any Pokémon Center to
+      access a Union Room and trade with nearby players. A second Switch console and a
+      second game card are required to obtain all three starters.
+    </div>
+  </div>
+
+  @if (starterGroups.length > 0) {
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 mb-5">
+      @for (starter of starterGroups[0].starters; track starter.id) {
+        <div class="col">
+          <div class="starter-card card shadow-sm h-100"
+               [ngStyle]="accentGradient ? {'--starter-gradient': accentGradient} : {}"
+               [class.starter-card-gradient]="!!accentGradient">
+            <div class="card-body d-flex flex-column align-items-center text-center p-4">
+              <!-- Sprite -->
+              <div class="sprite-wrapper mb-2">
+                <img
+                  [src]="getSpriteUrl(starter.id)"
+                  [alt]="starter.name"
+                  class="pokemon-sprite"
+                  (error)="onSpriteError($event, starter.id)"
+                >
+              </div>
+
+              <span class="pokedex-number mb-1">{{ getPokedexNumber(starter.id) }}</span>
+
+              <h5 class="card-title mb-2">
+                <a [href]="getBulbapediaUrl(starter.name)" target="_blank" rel="noopener noreferrer"
+                   class="bulbapedia-link">
+                  {{ starter.name }}
+                  <i class="bi bi-box-arrow-up-right ms-1 ext-link-icon"></i>
+                </a>
+              </h5>
+
+              <span class="method-badge badge mb-2">
+                <i class="bi bi-arrow-right-circle me-1"></i>{{ starter.method }}
+              </span>
+
+              @if (starter.notes) {
+                <p class="notes-text small text-body-secondary mb-0">
+                  <i class="bi bi-info-circle me-1"></i>{{ starter.notes }}
+                </p>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="empty-state text-center py-5 text-muted">
+      <i class="bi bi-search fs-1 d-block mb-3"></i>
+      <p>No starter data found.</p>
+    </div>
+  }
+
+  <!-- Johto / other starters note -->
+  <div class="alert johto-notice d-flex gap-3 align-items-start">
+    <i class="bi bi-exclamation-circle-fill fs-5 flex-shrink-0 mt-1"></i>
+    <div>
+      <strong>What about Johto starters?</strong>
+      Chikorita, Cyndaquil, and Totodile cannot be obtained in FireRed or LeafGreen through
+      any known in-game method on Switch. While Pokémon HOME transfer support has been
+      announced, there is currently no confirmed way to bring them into these games.
+    </div>
+  </div>
+</div>
+

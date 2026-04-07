@@ -37,6 +37,23 @@
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   border: none;
   border-top: 5px solid var(--game-color, var(--color-primary));
+  position: relative;
+}
+
+/* Gradient top border via pseudo-element when pair has iconColors */
+.game-card.game-card-gradient {
+  border-top: none;
+}
+
+.game-card.game-card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  background: var(--pair-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
 }
 
 .game-card:hover {

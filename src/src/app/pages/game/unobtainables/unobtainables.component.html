@@ -1,0 +1,81 @@
+<div class="unobtainables">
+  <div class="page-header mb-4">
+    <h2 class="page-title">
+      <i class="bi bi-slash-circle me-2"></i>Unobtainable Pokémon
+    </h2>
+    @if (gamePair) {
+      <p class="text-body-secondary mb-0">
+        These Pokémon cannot be obtained through normal gameplay in
+        <strong>{{ gamePair.displayName }}</strong> on Switch.
+        They were historically distributed via official events or bonus discs.
+      </p>
+    }
+  </div>
+
+  <!-- Switch-specific notice -->
+  <div class="alert switch-notice d-flex gap-3 align-items-start mb-4">
+    <i class="bi bi-info-circle-fill fs-5 flex-shrink-0 mt-1"></i>
+    <div>
+      <strong>Pokémon HOME support is coming.</strong>
+      Nintendo has confirmed that Pokémon FireRed and LeafGreen on Switch will support
+      transferring Pokémon <em>to</em> Pokémon HOME. There is currently no confirmed method
+      to transfer event Pokémon <em>into</em> these games from HOME or any other source.
+      Check the <a href="https://home.pokemon.com" target="_blank" rel="noopener noreferrer">Pokémon HOME website</a>
+      for the latest updates.
+    </div>
+  </div>
+
+  @if (unobtainables.length > 0) {
+    <div class="unobtainable-list d-flex flex-column gap-3">
+      @for (mon of unobtainables; track mon.id) {
+        <div class="unobtainable-card card shadow-sm"
+             [ngStyle]="accentGradient ? {'--unobtainable-gradient': accentGradient} : {}"
+             [class.unobtainable-card-gradient]="!!accentGradient">
+          <div class="card-body d-flex gap-4 align-items-center p-4">
+            <!-- Sprite -->
+            <div class="sprite-wrapper flex-shrink-0">
+              <img
+                [src]="getSpriteUrl(mon.id)"
+                [alt]="mon.name"
+                class="pokemon-sprite"
+                (error)="onSpriteError($event, mon.id)"
+              >
+            </div>
+
+            <!-- Info -->
+            <div class="flex-grow-1">
+              <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+                <span class="pokedex-number">{{ getPokedexNumber(mon.id) }}</span>
+                <h5 class="mb-0">
+                  <a [href]="getBulbapediaUrl(mon.name)" target="_blank" rel="noopener noreferrer"
+                     class="bulbapedia-link">
+                    {{ mon.name }}
+                    <i class="bi bi-box-arrow-up-right ms-1 ext-link-icon"></i>
+                  </a>
+                </h5>
+                <span class="badge unobtainable-badge">
+                  <i class="bi bi-slash-circle me-1"></i>Unobtainable
+                </span>
+              </div>
+              <p class="reason-text mb-1">
+                <i class="bi bi-exclamation-triangle-fill me-1 text-warning"></i>
+                {{ mon.reason }}
+              </p>
+              @if (mon.notes) {
+                <p class="notes-text small mb-0 text-body-secondary">
+                  <i class="bi bi-info-circle me-1"></i>{{ mon.notes }}
+                </p>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="empty-state text-center py-5 text-muted">
+      <i class="bi bi-check-circle fs-1 d-block mb-3"></i>
+      <p>No unobtainable Pokémon data found.</p>
+    </div>
+  }
+</div>
+

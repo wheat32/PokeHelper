@@ -1,0 +1,80 @@
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--game-color, var(--color-primary));
+}
+
+.switch-notice {
+  background-color: var(--color-accent);
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--border-radius);
+  opacity: 0.92;
+}
+
+.switch-notice a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.unobtainable-card {
+  border-radius: var(--border-radius);
+  border-top: 4px solid var(--bs-danger, #dc3545);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background-color: var(--color-surface);
+  position: relative;
+}
+
+.unobtainable-card.unobtainable-card-gradient {
+  border-top: none;
+}
+
+.unobtainable-card.unobtainable-card-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background: var(--unobtainable-gradient, linear-gradient(to right, var(--color-firered), var(--color-leafgreen)));
+}
+
+.unobtainable-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.sprite-wrapper {
+  background-color: var(--color-bg);
+  border-radius: 50%;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unobtainable-badge {
+  background-color: var(--bs-danger, #dc3545);
+  color: #fff;
+  font-size: 0.7rem;
+}
+
+.reason-text {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.notes-text {
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.ext-link-icon {
+  font-size: 0.65em;
+  vertical-align: super;
+  opacity: 0.6;
+}
+

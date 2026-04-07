@@ -38,6 +38,16 @@
                   <i class="bi bi-arrow-left-right me-2"></i>Trade Evolutions
                 </a>
               </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['/', pair.pairId, 'starters']">
+                  <i class="bi bi-egg-fill me-2"></i>Starters
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['/', pair.pairId, 'unobtainables']">
+                  <i class="bi bi-slash-circle me-2"></i>Unobtainables
+                </a>
+              </li>
             </ul>
           </li>
         }

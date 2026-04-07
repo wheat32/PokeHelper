@@ -12,6 +12,29 @@ export interface PokemonExclusive {
   notes?: string;
 }
 
+export interface UnobtainablePokemon {
+  id: number | string;
+  name: string;
+  /** Why this Pokémon cannot be obtained in-game. */
+  reason: string;
+  /** Any historical context or workaround (e.g. HOME transfer note). */
+  notes?: string;
+}
+
+export interface StarterOption {
+  id: number;
+  name: string;
+  /** How to obtain this starter (e.g. 'Choose at the start', 'Trade', 'Breed'). */
+  method: string;
+  notes?: string;
+}
+
+export interface StarterGroup {
+  /** Label for this group of starters, e.g. 'Kanto Starters'. */
+  groupName: string;
+  starters: StarterOption[];
+}
+
 export interface TradeEvolution {
   /** National Pokédex ID of the pre-evolution. */
   fromId: number | string;
@@ -69,4 +92,8 @@ export interface GamePairData {
   versions: [GameData, GameData];
   /** Trade evolutions shared between both versions (de-duplicated). */
   sharedTradeEvolutions: TradeEvolution[];
+  /** Pokémon that cannot be obtained in-game (event-only, etc.) */
+  unobtainables?: UnobtainablePokemon[];
+  /** Grouped starter acquisition guide. */
+  starterGroups?: StarterGroup[];
 }

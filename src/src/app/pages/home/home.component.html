@@ -14,7 +14,9 @@
   <div class="row g-4">
     @for (pair of gamePairs; track pair.pairId) {
       <div class="col-12 col-md-6">
-        <div class="game-card card h-100 shadow-sm {{ pair.themeClass }}">
+        <div class="game-card card h-100 shadow-sm {{ pair.themeClass }}"
+             [style]="pair.iconColors ? '--pair-gradient: linear-gradient(to right, ' + pair.iconColors[0] + ' 0%, ' + pair.iconColors[0] + ' 40%, ' + pair.iconColors[1] + ' 60%, ' + pair.iconColors[1] + ' 100%)' : ''"
+             [class.game-card-gradient]="!!pair.iconColors">
           <div class="card-body p-4">
             <div class="d-flex align-items-center gap-3 mb-3">
               @if (pair.icons && pair.iconColors) {
@@ -43,6 +45,14 @@
               <a [routerLink]="['/', pair.pairId, 'trade-evolutions']"
                  class="btn btn-sm game-btn">
                 <i class="bi bi-arrow-left-right me-1"></i>Trade Evolutions
+              </a>
+              <a [routerLink]="['/', pair.pairId, 'starters']"
+                 class="btn btn-sm game-btn">
+                <i class="bi bi-egg-fill me-1"></i>Starters
+              </a>
+              <a [routerLink]="['/', pair.pairId, 'unobtainables']"
+                 class="btn btn-sm game-btn">
+                <i class="bi bi-slash-circle me-1"></i>Unobtainables
               </a>
             </div>
           </div>
